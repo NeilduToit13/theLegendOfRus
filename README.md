@@ -6,4 +6,4 @@ wherein he undertook to cast a game of Age of Empires played by the Legend Rus
 that is longer than the current record (https://www.youtube.com/watch?v=2zN_LAbFaoM) which was 
 13 hours in-game time, if he reaches 2k5 subs or something.
 
-We therefore need to find the longest game of Age of Empires played by the legend Rus
+We therefore need to, as suggested by dfhwze in the comments, find the longest game of Age of Empires played by the legend Rus.
