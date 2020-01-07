@@ -3,21 +3,44 @@ import time
 import random 
 from bs4 import BeautifulSoup
 import re 
+import argparse
+import settings
 
-# Special thanks to Juanjo Quispe for providing this 
-# link in a Youtube comment
-URL = 'https://www.voobly.com/profile/view/124230024'
-PAGE_LOAD_TIMEOUT = 30
+
+parser = argparse.ArgumentParser(
+        description=settings.DESCRIPTION,
+        )
+
+parser.add_argument('-u', '--username', type=str, required=True, help='username for Voobly')
+parser.add_argument('-p', '--password', type=str, required=True, help='password for Voobly')
+
+args = parser.parse_args()
 
 def main():
-    with webdriver.Firefox() as driver:
-        driver.set_page_load_timeout(PAGE_LOAD_TIMEOUT)
+    # Create Driver
+    driver = webdriver.Chrome()
+    driver.set_page_load_timeout(settings.PAGE_LOAD_TIMEOUT)
 
-        driver.get(URL)
+    # Initial page load
+    driver.get(settings.URL)
+    time.sleep(2)
 
-        html = driver.execute_script("return document.documentElement.outerHTML")
-        print(html)
+    # Login to Voobly
+    username_input = driver.find_element_by_id("username")
+    username_input.clear()
+    username_input.send_keys(args.username)
+    time.sleep(2)
+    password_input = driver.find_element_by_id("password")
+    password_input.clear()
+    password_input.send_keys(args.password)
+    driver.find_elements_by_class_name("login-button")[0].click()
 
+
+
+
+
+    time.sleep(10)
+    #html = driver.execute_script("return document.documentElement.outerHTML")
 
 if __name__=="__main__":
     main()
