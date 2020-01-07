@@ -13,3 +13,7 @@ Rus currently uses Selenium webdriver. To use selenium, you will need to:
 1. Install Chrome or Firefox
 2. Install a driver for Chrome of Firefox 
 3. Put the driver into your path
+
+# How to run 
+
+    python main.py -u <your voobly username> -p <your voobly password>

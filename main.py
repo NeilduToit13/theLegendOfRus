@@ -47,6 +47,19 @@ def main():
     driver.find_element_by_link_text("Matches").click()
     time.sleep(2)
 
+    # Loop over each of the matches pages 
+    # There are 1397 matches as at 7 January.
+    # And 10 matchers per page.
+    # But this guy plays a lot. There could be many more games played in the next few days.
+    # An Error at the end of the loop should be fine.
+    # So going for 160 loops.
+
+    for i in range(160):
+        print(f"{i+1} pages viewed")
+        driver.find_element_by_link_text("→").click()
+        time.sleep(2)
+
+
 
 
 
