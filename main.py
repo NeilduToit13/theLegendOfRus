@@ -34,6 +34,18 @@ def main():
     password_input.clear()
     password_input.send_keys(args.password)
     driver.find_elements_by_class_name("login-button")[0].click()
+    time.sleep(2)
+
+
+    # Refetch the page.
+    # Looks like browser doesn't always navigate back 
+    # to Rus' profile after a login.
+    driver.get(settings.URL)
+    time.sleep(2)
+
+    # Navigate to matches
+    driver.find_element_by_link_text("Matches").click()
+    time.sleep(2)
 
 
 
